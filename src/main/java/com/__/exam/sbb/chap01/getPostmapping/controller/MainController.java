@@ -1,5 +1,7 @@
 package com.__.exam.sbb.chap01.getPostmapping.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -89,5 +91,11 @@ public class MainController {
         increaseNo++;
         return increaseNo;
     }
-
+    @GetMapping("/plus2")
+    @ResponseBody
+    public int showPlus2(HttpServletRequest req, HttpServletResponse resp){
+        int a = Integer.parseInt(req.getParameter("a"));
+        int b = Integer.parseInt(req.getParameter("b"));
+        return a + b;
+    }
 }

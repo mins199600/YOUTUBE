@@ -2,7 +2,7 @@ package com.__.exam.sbb.chap01.practice;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.stream.Collectors;
@@ -37,9 +37,9 @@ public class HomeController {
     }
 
     //문제 : http://localhost:8080/mbti?name=이수민 검색하면 화면에 ESTJ 나오게 하기
-    @GetMapping("/mbti")
+    @GetMapping("/mbti/{name}")
     @ResponseBody
-    public String mbti(@RequestParam(value = "name", required = true)String name){
+   /* public String mbti(@RequestParam(value = "name", required = true)String name){
         switch (name){
             case "이수민" :
                 return "ESTJ";
@@ -51,6 +51,16 @@ public class HomeController {
                 return "ESFP";
             default:
                 return "insert name please";
-        }
+        }*/
+    public String showMbti(@PathVariable String name) {
+        return switch (name) {
+            case "홍길동" -> "INFP";
+            case "홍길순" -> "ENFP";
+            case "임꺽정" -> "ESFJ";
+            case "이수민" -> "INFJ";
+            default -> "모름";
+        };
     }
 }
+
+
