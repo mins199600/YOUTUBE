@@ -6,6 +6,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
+
+    private int increaseNo;
+
+    public MainController() {
+        increaseNo = -1;
+    }
+
     @RequestMapping("/sbb")
     @ResponseBody
     public String index(){
@@ -76,12 +83,11 @@ public class MainController {
                 <h1>%d</h1>
                 """.formatted(num);
     }
-
-/*    @GetMapping("/increase")
+    @GetMapping("/increaseNo")
     @ResponseBody
-    public String increase3(@RequestParam(defaultValue = "0") int num){
-        return """
-                <h1>%d</h1>
-                """.formatted(num + 2);
-    }*/
+    public int showIncrease(){
+        increaseNo++;
+        return increaseNo;
+    }
+
 }
