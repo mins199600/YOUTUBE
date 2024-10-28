@@ -1,4 +1,4 @@
-package com.__.exam.sbb.chap01.practice;
+package com.__.exam.sbb.chap01.practice01;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
