@@ -36,6 +36,7 @@ public class PracticeControllerEX02 {
         articles.add(article);
         return "%d번 게시물이 추가되었습니다".formatted(article.getId());
     }
+
 }
 //정답
 @AllArgsConstructor
