@@ -9,6 +9,10 @@ import java.util.List;
 
 @Controller
 public class PracticeControllerEX03 {
+    private List<Article> articles;
+    public PracticeControllerEX03() {
+        articles = new ArrayList<>();
+    }
     //게시물 리스팅
     //문제 : http://localhost:8080/article/list >> 전체 게시물 출력
     @GetMapping("/article/list")
@@ -20,4 +24,10 @@ public class PracticeControllerEX03 {
         list.add("C");
         return list;
     }
+    @GetMapping("/article/list2")
+    @ResponseBody
+    public List<Article> getArticles(){
+        return articles;
+    }
 }
+
